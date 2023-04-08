@@ -8,6 +8,7 @@ fn main() {
 }
 
 fn current_favorite_color() -> String {
+    // 字符串字面量是字符串切片，是一个不可变引用
     let s = "blue";
     s[..].to_string()
 }
