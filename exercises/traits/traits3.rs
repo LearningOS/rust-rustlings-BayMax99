@@ -10,7 +10,10 @@
 // I AM NOT DONE
 
 pub trait Licensed {
-    fn licensing_info(&self) -> String;
+    fn licensing_info(&self) -> String {
+        "Some information".to_string()
+    }
+
 }
 
 struct SomeSoftware {
@@ -30,6 +33,7 @@ mod tests {
 
     #[test]
     fn is_licensing_info_the_same() {
+        // string类型
         let licensing_info = String::from("Some information");
         let some_software = SomeSoftware { version_number: 1 };
         let other_software = OtherSoftware {
