@@ -6,8 +6,8 @@
 
 fn array_and_vec() -> ([i32; 4], Vec<i32>) {
     let a = [10, 20, 30, 40]; // a plain array
-    let v = [10, 20, 30, 40]; // TODO: declare your vector here with the macro for vectors, 
-    (a, v.to_vec())
+    let v = vec![10, 20, 30, 40]; // TODO: declare your vector here with the macro for vectors, 
+    (a, v)
 }
 
 #[cfg(test)]
