@@ -18,8 +18,6 @@
 // - The output element is going to be a Vector of strings.
 // No hints this time!
 
-// I AM NOT DONE
-
 pub enum Command {
     Uppercase,
     Trim,
@@ -30,12 +28,17 @@ mod my_module {
     use super::Command;
 
     // TODO: Complete the function signature!
-    pub fn transformer(input: String) -> Vec<> {
+    pub fn transformer(input: Vec<(&str, Command)>) -> Vec<String> {
         // TODO: Complete the output declaration!
-        let mut output: ??? = vec![];
+        let mut output: Vec<String> = vec![];
         for (string, command) in input.iter() {
             // TODO: Complete the function body. You can do it!
-            
+            match command {
+                // 使用to_uppercase()将字符串的所有字符转换为大写
+                Command::Uppercase => output.push(string.to_string().to_uppercase()),
+                Command::Trim  => output.push(string.trim().to_string()),
+                Command::Append(usize) => output.push(string.to_string() + &"bar".repeat(*usize)),
+            }
         }
         output
     }
