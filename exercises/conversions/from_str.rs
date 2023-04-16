@@ -46,21 +46,23 @@ impl FromStr for Person {
     type Err = ParsePersonError;
     fn from_str(s: &str) -> Result<Self, Self::Err> {
         if s.is_empty() {
-            return Err(Self::Err::Empty);
-        }
-        let (name, age) = match s.split_once(',') {
-            Some((name, age)) => (name.to_owned(), age.to_string() ),
-            None => Err(Self::Err::BadLen),
-        };
-        if name.is_empty() {
-            return Err(Self::Err::NoName);
+            return Err(ParsePersonError::Empty);
         }
 
-        match age.parse() {
-            Ok(age) => Ok(Self { name, age }),
-            Err(err) => Err(Self::Err::ParseInt(err)),
+        let parts: Vec<&str> = s.split(',').collect();
+
+        if parts.len() != 2 {
+            return Err(ParsePersonError::BadLen);
         }
 
+        if parts[0].is_empty() {
+            return Err(ParsePersonError::NoName);
+        }
+
+        let name = parts[0].into();
+        let age = parts[1].parse().map_err(ParsePersonError::ParseInt)?;
+        
+        Ok(Person {name, age,})
     }
 }
 

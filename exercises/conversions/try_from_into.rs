@@ -38,13 +38,42 @@ enum IntoColorError {
 impl TryFrom<(i16, i16, i16)> for Color {
     type Error = IntoColorError;
     fn try_from(tuple: (i16, i16, i16)) -> Result<Self, Self::Error> {
+        let red = match tuple.0.try_into() {
+            Ok(x) => x,
+            _ => return Err(Self::Error::IntConversion),
+        };
+        let green = match tuple.1.try_into() {
+            Ok(x) => x,
+            _ => return Err(Self::Error::IntConversion),
+        };
+        let blue = match tuple.2.try_into() {
+            Ok(x) => x,
+            _ => return Err(Self::Error::IntConversion),
+        };
+        Ok(Self { red, green, blue })
+
     }
+
 }
 
 // Array implementation
 impl TryFrom<[i16; 3]> for Color {
     type Error = IntoColorError;
     fn try_from(arr: [i16; 3]) -> Result<Self, Self::Error> {
+        let red = match arr[0].try_into() {
+            Ok(x) => x,
+            _ => return Err(Self::Error::IntConversion),
+        };
+        let green = match arr[1].try_into() {
+            Ok(x) => x,
+            _ => return Err(Self::Error::IntConversion),
+        };
+        let blue = match arr[2].try_into() {
+            Ok(x) => x,
+            _ => return Err(Self::Error::IntConversion),
+        };
+        Ok(Self { red, green, blue })
+
     }
 }
 
@@ -52,6 +81,24 @@ impl TryFrom<[i16; 3]> for Color {
 impl TryFrom<&[i16]> for Color {
     type Error = IntoColorError;
     fn try_from(slice: &[i16]) -> Result<Self, Self::Error> {
+        if slice.len() != 3 {
+            return Err(Self::Error::BadLen);
+        }
+
+        let red = match slice[0].try_into() {
+            Ok(x) => x,
+            _ => return Err(Self::Error::IntConversion),
+        };
+        let green = match slice[1].try_into() {
+            Ok(x) => x,
+            _ => return Err(Self::Error::IntConversion),
+        };
+        let blue = match slice[2].try_into() {
+            Ok(x) => x,
+            _ => return Err(Self::Error::IntConversion),
+        };
+        Ok(Self { red, green, blue })
+
     }
 }
 
