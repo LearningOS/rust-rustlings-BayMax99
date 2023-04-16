@@ -1,0 +1,86 @@
+{
+    "sourceFile": "exercises/standard_library_types/iterators5.rs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 17,
+            "patches": [
+                {
+                    "date": 1681636374120,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1681636510651,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,8 +34,9 @@\n fn count_iterator(map: &HashMap<String, Progress>, value: Progress) -> usize {\r\n     // map is a hashmap with String keys and Progress values.\r\n     // map = { \"variables1\": Complete, \"from_str\": None, ... }\r\n     // todo!();\r\n+    map\r\n }\r\n \r\n fn count_collection_for(collection: &[HashMap<String, Progress>], value: Progress) -> usize {\r\n     let mut count = 0;\r\n"
+                },
+                {
+                    "date": 1681636839498,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n fn count_iterator(map: &HashMap<String, Progress>, value: Progress) -> usize {\r\n     // map is a hashmap with String keys and Progress values.\r\n     // map = { \"variables1\": Complete, \"from_str\": None, ... }\r\n     // todo!();\r\n-    map\r\n+    map.\r\n }\r\n \r\n fn count_collection_for(collection: &[HashMap<String, Progress>], value: Progress) -> usize {\r\n     let mut count = 0;\r\n"
+                },
+                {
+                    "date": 1681636844731,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n fn count_iterator(map: &HashMap<String, Progress>, value: Progress) -> usize {\r\n     // map is a hashmap with String keys and Progress values.\r\n     // map = { \"variables1\": Complete, \"from_str\": None, ... }\r\n     // todo!();\r\n-    map.\r\n+    map.values().\r\n }\r\n \r\n fn count_collection_for(collection: &[HashMap<String, Progress>], value: Progress) -> usize {\r\n     let mut count = 0;\r\n"
+                },
+                {
+                    "date": 1681636850028,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n fn count_iterator(map: &HashMap<String, Progress>, value: Progress) -> usize {\r\n     // map is a hashmap with String keys and Progress values.\r\n     // map = { \"variables1\": Complete, \"from_str\": None, ... }\r\n     // todo!();\r\n-    map.values().\r\n+    map.values().filter(|)\r\n }\r\n \r\n fn count_collection_for(collection: &[HashMap<String, Progress>], value: Progress) -> usize {\r\n     let mut count = 0;\r\n"
+                },
+                {
+                    "date": 1681636857221,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n fn count_iterator(map: &HashMap<String, Progress>, value: Progress) -> usize {\r\n     // map is a hashmap with String keys and Progress values.\r\n     // map = { \"variables1\": Complete, \"from_str\": None, ... }\r\n     // todo!();\r\n-    map.values().filter(|)\r\n+    map.values().filter(|var| val == )\r\n }\r\n \r\n fn count_collection_for(collection: &[HashMap<String, Progress>], value: Progress) -> usize {\r\n     let mut count = 0;\r\n"
+                },
+                {
+                    "date": 1681636867649,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n fn count_iterator(map: &HashMap<String, Progress>, value: Progress) -> usize {\r\n     // map is a hashmap with String keys and Progress values.\r\n     // map = { \"variables1\": Complete, \"from_str\": None, ... }\r\n     // todo!();\r\n-    map.values().filter(|var| val == )\r\n+    map.values().filter(|var| val == && value).count()\r\n }\r\n \r\n fn count_collection_for(collection: &[HashMap<String, Progress>], value: Progress) -> usize {\r\n     let mut count = 0;\r\n"
+                },
+                {
+                    "date": 1681636872903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n fn count_collection_iterator(collection: &[HashMap<String, Progress>], value: Progress) -> usize {\r\n     // collection is a slice of hashmaps.\r\n     // collection = [{ \"variables1\": Complete, \"from_str\": None, ... },\r\n     //     { \"variables2\": Complete, ... }, ... ]\r\n-    todo!();\r\n+    // todo!();\r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681637015231,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,8 +54,9 @@\n     // collection is a slice of hashmaps.\r\n     // collection = [{ \"variables1\": Complete, \"from_str\": None, ... },\r\n     //     { \"variables2\": Complete, ... }, ... ]\r\n     // todo!();\r\n+    \r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681637025817,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,9 +54,9 @@\n     // collection is a slice of hashmaps.\r\n     // collection = [{ \"variables1\": Complete, \"from_str\": None, ... },\r\n     //     { \"variables2\": Complete, ... }, ... ]\r\n     // todo!();\r\n-    \r\n+    collection\r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681637031730,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,8 +55,9 @@\n     // collection = [{ \"variables1\": Complete, \"from_str\": None, ... },\r\n     //     { \"variables2\": Complete, ... }, ... ]\r\n     // todo!();\r\n     collection\r\n+    \r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681637037158,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n     // collection = [{ \"variables1\": Complete, \"from_str\": None, ... },\r\n     //     { \"variables2\": Complete, ... }, ... ]\r\n     // todo!();\r\n     collection\r\n-    \r\n+        .iter()\r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681637043258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,8 +56,9 @@\n     //     { \"variables2\": Complete, ... }, ... ]\r\n     // todo!();\r\n     collection\r\n         .iter()\r\n+        .map\r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681637050505,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n     //     { \"variables2\": Complete, ... }, ... ]\r\n     // todo!();\r\n     collection\r\n         .iter()\r\n-        .map\r\n+        .map(|map| )\r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681637116845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n     //     { \"variables2\": Complete, ... }, ... ]\r\n     // todo!();\r\n     collection\r\n         .iter()\r\n-        .map(|map| )\r\n+        .map(|map| count)\r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681637125469,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n     //     { \"variables2\": Complete, ... }, ... ]\r\n     // todo!();\r\n     collection\r\n         .iter()\r\n-        .map(|map| count)\r\n+        .map(|map| count_iterator(map, value))\r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681637343405,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n fn count_iterator(map: &HashMap<String, Progress>, value: Progress) -> usize {\r\n     // map is a hashmap with String keys and Progress values.\r\n     // map = { \"variables1\": Complete, \"from_str\": None, ... }\r\n     // todo!();\r\n-    map.values().filter(|var| val == && value).count()\r\n+    map.values().filter(|var| var == && value).count()\r\n }\r\n \r\n fn count_collection_for(collection: &[HashMap<String, Progress>], value: Progress) -> usize {\r\n     let mut count = 0;\r\n@@ -57,8 +57,9 @@\n     // todo!();\r\n     collection\r\n         .iter()\r\n         .map(|map| count_iterator(map, value))\r\n+        .sum()\r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681637352655,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,10 +9,8 @@\n // Execute `rustlings hint iterators5` or use the `hint` watch subcommand for a hint.\r\n //\r\n // Make the code compile and the tests pass.\r\n \r\n-// I AM NOT DONE\r\n-\r\n use std::collections::HashMap;\r\n \r\n #[derive(Clone, Copy, PartialEq, Eq)]\r\n enum Progress {\r\n"
+                }
+            ],
+            "date": 1681636374120,
+            "name": "Commit-0",
+            "content": "// iterators5.rs\r\n// Let's define a simple model to track Rustlings exercise progress. Progress\r\n// will be modelled using a hash map. The name of the exercise is the key and\r\n// the progress is the value. Two counting functions were created to count the\r\n// number of exercises with a given progress. These counting functions use\r\n// imperative style for loops. Recreate this counting functionality using\r\n// iterators. Only the two iterator methods (count_iterator and\r\n// count_collection_iterator) need to be modified.\r\n// Execute `rustlings hint iterators5` or use the `hint` watch subcommand for a hint.\r\n//\r\n// Make the code compile and the tests pass.\r\n\r\n// I AM NOT DONE\r\n\r\nuse std::collections::HashMap;\r\n\r\n#[derive(Clone, Copy, PartialEq, Eq)]\r\nenum Progress {\r\n    None,\r\n    Some,\r\n    Complete,\r\n}\r\n\r\nfn count_for(map: &HashMap<String, Progress>, value: Progress) -> usize {\r\n    let mut count = 0;\r\n    for val in map.values() {\r\n        if val == &value {\r\n            count += 1;\r\n        }\r\n    }\r\n    count\r\n}\r\n\r\nfn count_iterator(map: &HashMap<String, Progress>, value: Progress) -> usize {\r\n    // map is a hashmap with String keys and Progress values.\r\n    // map = { \"variables1\": Complete, \"from_str\": None, ... }\r\n    // todo!();\r\n}\r\n\r\nfn count_collection_for(collection: &[HashMap<String, Progress>], value: Progress) -> usize {\r\n    let mut count = 0;\r\n    for map in collection {\r\n        for val in map.values() {\r\n            if val == &value {\r\n                count += 1;\r\n            }\r\n        }\r\n    }\r\n    count\r\n}\r\n\r\nfn count_collection_iterator(collection: &[HashMap<String, Progress>], value: Progress) -> usize {\r\n    // collection is a slice of hashmaps.\r\n    // collection = [{ \"variables1\": Complete, \"from_str\": None, ... },\r\n    //     { \"variables2\": Complete, ... }, ... ]\r\n    todo!();\r\n}\r\n\r\n#[cfg(test)]\r\nmod tests {\r\n    use super::*;\r\n\r\n    #[test]\r\n    fn count_complete() {\r\n        let map = get_map();\r\n        assert_eq!(3, count_iterator(&map, Progress::Complete));\r\n    }\r\n\r\n    #[test]\r\n    fn count_equals_for() {\r\n        let map = get_map();\r\n        assert_eq!(\r\n            count_for(&map, Progress::Complete),\r\n            count_iterator(&map, Progress::Complete)\r\n        );\r\n    }\r\n\r\n    #[test]\r\n    fn count_collection_complete() {\r\n        let collection = get_vec_map();\r\n        assert_eq!(\r\n            6,\r\n            count_collection_iterator(&collection, Progress::Complete)\r\n        );\r\n    }\r\n\r\n    #[test]\r\n    fn count_collection_equals_for() {\r\n        let collection = get_vec_map();\r\n        assert_eq!(\r\n            count_collection_for(&collection, Progress::Complete),\r\n            count_collection_iterator(&collection, Progress::Complete)\r\n        );\r\n    }\r\n\r\n    fn get_map() -> HashMap<String, Progress> {\r\n        use Progress::*;\r\n\r\n        let mut map = HashMap::new();\r\n        map.insert(String::from(\"variables1\"), Complete);\r\n        map.insert(String::from(\"functions1\"), Complete);\r\n        map.insert(String::from(\"hashmap1\"), Complete);\r\n        map.insert(String::from(\"arc1\"), Some);\r\n        map.insert(String::from(\"as_ref_mut\"), None);\r\n        map.insert(String::from(\"from_str\"), None);\r\n\r\n        map\r\n    }\r\n\r\n    fn get_vec_map() -> Vec<HashMap<String, Progress>> {\r\n        use Progress::*;\r\n\r\n        let map = get_map();\r\n\r\n        let mut other = HashMap::new();\r\n        other.insert(String::from(\"variables2\"), Complete);\r\n        other.insert(String::from(\"functions2\"), Complete);\r\n        other.insert(String::from(\"if1\"), Complete);\r\n        other.insert(String::from(\"from_into\"), None);\r\n        other.insert(String::from(\"try_from_into\"), None);\r\n\r\n        vec![map, other]\r\n    }\r\n}\r\n"
+        }
+    ]
+}

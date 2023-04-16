@@ -1,0 +1,126 @@
+{
+    "sourceFile": "exercises/conversions/from_into.rs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 27,
+            "patches": [
+                {
+                    "date": 1681637504281,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1681637567359,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n // We implement the Default trait to use it as a fallback\r\n // when the provided string is not convertible into a Person object\r\n impl Default for Person {\r\n     fn default() -> Self {\r\n-        Person {\r\n+        Self {\r\n             name: String::from(\"John\"),\r\n             age: 30,\r\n         }\r\n     }\r\n@@ -38,8 +38,9 @@\n // I AM NOT DONE\r\n \r\n impl From<&str> for Person {\r\n     fn from(s: &str) -> Person {\r\n+        \r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681637574232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n // I AM NOT DONE\r\n \r\n impl From<&str> for Person {\r\n     fn from(s: &str) -> Person {\r\n-        \r\n+        let \r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681637582047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n // I AM NOT DONE\r\n \r\n impl From<&str> for Person {\r\n     fn from(s: &str) -> Person {\r\n-        let \r\n+        let (name)\r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681637587705,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n // I AM NOT DONE\r\n \r\n impl From<&str> for Person {\r\n     fn from(s: &str) -> Person {\r\n-        let (name)\r\n+        let (name, age) = match\r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681637595272,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n // I AM NOT DONE\r\n \r\n impl From<&str> for Person {\r\n     fn from(s: &str) -> Person {\r\n-        let (name, age) = match\r\n+        let (name, age) = match s.split_once\r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681637600946,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n // I AM NOT DONE\r\n \r\n impl From<&str> for Person {\r\n     fn from(s: &str) -> Person {\r\n-        let (name, age) = match s.split_once\r\n+        let (name, age) = match s.split_once(',')\r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681637607757,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,11 @@\n // I AM NOT DONE\r\n \r\n impl From<&str> for Person {\r\n     fn from(s: &str) -> Person {\r\n-        let (name, age) = match s.split_once(',')\r\n+        let (name, age) = match s.split_once(',') {\r\n+            None => \r\n+        }\r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681637613069,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n \r\n impl From<&str> for Person {\r\n     fn from(s: &str) -> Person {\r\n         let (name, age) = match s.split_once(',') {\r\n-            None => \r\n+            None => return Self::d\r\n         }\r\n     }\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681637992823,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,10 @@\n \r\n impl From<&str> for Person {\r\n     fn from(s: &str) -> Person {\r\n         let (name, age) = match s.split_once(',') {\r\n-            None => return Self::d\r\n+            None => return Self::default(),\r\n+            Some\r\n         }\r\n     }\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681638001782,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n impl From<&str> for Person {\r\n     fn from(s: &str) -> Person {\r\n         let (name, age) = match s.split_once(',') {\r\n             None => return Self::default(),\r\n-            Some\r\n+            Some( name, age) =>\r\n         }\r\n     }\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681638011350,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n impl From<&str> for Person {\r\n     fn from(s: &str) -> Person {\r\n         let (name, age) = match s.split_once(',') {\r\n             None => return Self::default(),\r\n-            Some( name, age) =>\r\n+            Some( name, age) =>（name.to_ownde\r\n         }\r\n     }\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681638017396,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n impl From<&str> for Person {\r\n     fn from(s: &str) -> Person {\r\n         let (name, age) = match s.split_once(',') {\r\n             None => return Self::default(),\r\n-            Some( name, age) =>（name.to_ownde\r\n+            Some( name, age) =>（name.to_owned()\r\n         }\r\n     }\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681638022658,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n impl From<&str> for Person {\r\n     fn from(s: &str) -> Person {\r\n         let (name, age) = match s.split_once(',') {\r\n             None => return Self::default(),\r\n-            Some( name, age) =>（name.to_owned()\r\n+            Some( name, age) =>（name.to_owned(), age),\r\n         }\r\n     }\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681638031348,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,10 +40,10 @@\n impl From<&str> for Person {\r\n     fn from(s: &str) -> Person {\r\n         let (name, age) = match s.split_once(',') {\r\n             None => return Self::default(),\r\n-            Some( name, age) =>（name.to_owned(), age),\r\n-        }\r\n+            Some( name, age) =>(name.to_owned(), age),\r\n+        };\r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681638038928,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,8 +42,9 @@\n         let (name, age) = match s.split_once(',') {\r\n             None => return Self::default(),\r\n             Some( name, age) =>(name.to_owned(), age),\r\n         };\r\n+        if \r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681638045755,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n         let (name, age) = match s.split_once(',') {\r\n             None => return Self::default(),\r\n             Some( name, age) =>(name.to_owned(), age),\r\n         };\r\n-        if \r\n+        if name.is_empty()\r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681638051040,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,11 @@\n         let (name, age) = match s.split_once(',') {\r\n             None => return Self::default(),\r\n             Some( name, age) =>(name.to_owned(), age),\r\n         };\r\n-        if name.is_empty()\r\n+        if name.is_empty() {\r\n+            return \r\n+        }\r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681638057980,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n             None => return Self::default(),\r\n             Some( name, age) =>(name.to_owned(), age),\r\n         };\r\n         if name.is_empty() {\r\n-            return \r\n+            return Self::default;\r\n         }\r\n     }\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681638065281,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,8 +45,9 @@\n         };\r\n         if name.is_empty() {\r\n             return Self::default;\r\n         }\r\n+        age.parse\r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681638071100,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,10 @@\n         };\r\n         if name.is_empty() {\r\n             return Self::default;\r\n         }\r\n-        age.parse\r\n+        age.parse()\r\n+            .map\r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681638076806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n         if name.is_empty() {\r\n             return Self::default;\r\n         }\r\n         age.parse()\r\n-            .map\r\n+            .map_or_else()\r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681638082126,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n         if name.is_empty() {\r\n             return Self::default;\r\n         }\r\n         age.parse()\r\n-            .map_or_else()\r\n+            .map_or_else(|_| Self)\r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681638090085,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n         if name.is_empty() {\r\n             return Self::default;\r\n         }\r\n         age.parse()\r\n-            .map_or_else(|_| Self)\r\n+            .map_or_else(|_| Self::default(), |age|)\r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681638097615,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,9 +46,9 @@\n         if name.is_empty() {\r\n             return Self::default;\r\n         }\r\n         age.parse()\r\n-            .map_or_else(|_| Self::default(), |age|)\r\n+            .map_or_else(|_| Self::default(), |age| Self { name, age})\r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681638104686,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,10 +34,10 @@\n // 5. Extract the other element from the split operation and parse it into a `usize` as the age\r\n // If while parsing the age, something goes wrong, then return the default of Person\r\n // Otherwise, then return an instantiated Person object with the results\r\n \r\n-// I AM NOT DONE\r\n \r\n+\r\n impl From<&str> for Person {\r\n     fn from(s: &str) -> Person {\r\n         let (name, age) = match s.split_once(',') {\r\n             None => return Self::default(),\r\n@@ -46,9 +46,9 @@\n         if name.is_empty() {\r\n             return Self::default;\r\n         }\r\n         age.parse()\r\n-            .map_or_else(|_| Self::default(), |age| Self { name, age})\r\n+            .map_or_else(|_| Self::default(), |age| Self { name, age })\r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681638204331,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n             None => return Self::default(),\r\n             Some( name, age) =>(name.to_owned(), age),\r\n         };\r\n         if name.is_empty() {\r\n-            return Self::default;\r\n+            return Self::default();\r\n         }\r\n         age.parse()\r\n             .map_or_else(|_| Self::default(), |age| Self { name, age })\r\n     }\r\n"
+                },
+                {
+                    "date": 1681638222719,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n impl From<&str> for Person {\r\n     fn from(s: &str) -> Person {\r\n         let (name, age) = match s.split_once(',') {\r\n             None => return Self::default(),\r\n-            Some( name, age) =>(name.to_owned(), age),\r\n+            Some( (name, age) =>(name.to_owned(), age),\r\n         };\r\n         if name.is_empty() {\r\n             return Self::default();\r\n         }\r\n"
+                }
+            ],
+            "date": 1681637504281,
+            "name": "Commit-0",
+            "content": "// The From trait is used for value-to-value conversions.\r\n// If From is implemented correctly for a type, the Into trait should work conversely.\r\n// You can read more about it at https://doc.rust-lang.org/std/convert/trait.From.html\r\n// Execute `rustlings hint from_into` or use the `hint` watch subcommand for a hint.\r\n\r\n#[derive(Debug)]\r\nstruct Person {\r\n    name: String,\r\n    age: usize,\r\n}\r\n\r\n// We implement the Default trait to use it as a fallback\r\n// when the provided string is not convertible into a Person object\r\nimpl Default for Person {\r\n    fn default() -> Self {\r\n        Person {\r\n            name: String::from(\"John\"),\r\n            age: 30,\r\n        }\r\n    }\r\n}\r\n\r\n// Your task is to complete this implementation\r\n// in order for the line `let p = Person::from(\"Mark,20\")` to compile\r\n// Please note that you'll need to parse the age component into a `usize`\r\n// with something like `\"4\".parse::<usize>()`. The outcome of this needs to\r\n// be handled appropriately.\r\n//\r\n// Steps:\r\n// 1. If the length of the provided string is 0, then return the default of Person\r\n// 2. Split the given string on the commas present in it\r\n// 3. Extract the first element from the split operation and use it as the name\r\n// 4. If the name is empty, then return the default of Person\r\n// 5. Extract the other element from the split operation and parse it into a `usize` as the age\r\n// If while parsing the age, something goes wrong, then return the default of Person\r\n// Otherwise, then return an instantiated Person object with the results\r\n\r\n// I AM NOT DONE\r\n\r\nimpl From<&str> for Person {\r\n    fn from(s: &str) -> Person {\r\n    }\r\n}\r\n\r\nfn main() {\r\n    // Use the `from` function\r\n    let p1 = Person::from(\"Mark,20\");\r\n    // Since From is implemented for Person, we should be able to use Into\r\n    let p2: Person = \"Gerald,70\".into();\r\n    println!(\"{:?}\", p1);\r\n    println!(\"{:?}\", p2);\r\n}\r\n\r\n#[cfg(test)]\r\nmod tests {\r\n    use super::*;\r\n    #[test]\r\n    fn test_default() {\r\n        // Test that the default person is 30 year old John\r\n        let dp = Person::default();\r\n        assert_eq!(dp.name, \"John\");\r\n        assert_eq!(dp.age, 30);\r\n    }\r\n    #[test]\r\n    fn test_bad_convert() {\r\n        // Test that John is returned when bad string is provided\r\n        let p = Person::from(\"\");\r\n        assert_eq!(p.name, \"John\");\r\n        assert_eq!(p.age, 30);\r\n    }\r\n    #[test]\r\n    fn test_good_convert() {\r\n        // Test that \"Mark,20\" works\r\n        let p = Person::from(\"Mark,20\");\r\n        assert_eq!(p.name, \"Mark\");\r\n        assert_eq!(p.age, 20);\r\n    }\r\n    #[test]\r\n    fn test_bad_age() {\r\n        // Test that \"Mark,twenty\" will return the default person due to an error in parsing age\r\n        let p = Person::from(\"Mark,twenty\");\r\n        assert_eq!(p.name, \"John\");\r\n        assert_eq!(p.age, 30);\r\n    }\r\n\r\n    #[test]\r\n    fn test_missing_comma_and_age() {\r\n        let p: Person = Person::from(\"Mark\");\r\n        assert_eq!(p.name, \"John\");\r\n        assert_eq!(p.age, 30);\r\n    }\r\n\r\n    #[test]\r\n    fn test_missing_age() {\r\n        let p: Person = Person::from(\"Mark,\");\r\n        assert_eq!(p.name, \"John\");\r\n        assert_eq!(p.age, 30);\r\n    }\r\n\r\n    #[test]\r\n    fn test_missing_name() {\r\n        let p: Person = Person::from(\",1\");\r\n        assert_eq!(p.name, \"John\");\r\n        assert_eq!(p.age, 30);\r\n    }\r\n\r\n    #[test]\r\n    fn test_missing_name_and_age() {\r\n        let p: Person = Person::from(\",\");\r\n        assert_eq!(p.name, \"John\");\r\n        assert_eq!(p.age, 30);\r\n    }\r\n\r\n    #[test]\r\n    fn test_missing_name_and_invalid_age() {\r\n        let p: Person = Person::from(\",one\");\r\n        assert_eq!(p.name, \"John\");\r\n        assert_eq!(p.age, 30);\r\n    }\r\n\r\n    #[test]\r\n    fn test_trailing_comma() {\r\n        let p: Person = Person::from(\"Mike,32,\");\r\n        assert_eq!(p.name, \"John\");\r\n        assert_eq!(p.age, 30);\r\n    }\r\n\r\n    #[test]\r\n    fn test_trailing_comma_and_some_string() {\r\n        let p: Person = Person::from(\"Mike,32,man\");\r\n        assert_eq!(p.name, \"John\");\r\n        assert_eq!(p.age, 30);\r\n    }\r\n}\r\n"
+        }
+    ]
+}

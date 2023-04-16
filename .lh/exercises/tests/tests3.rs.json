@@ -1,0 +1,22 @@
+{
+    "sourceFile": "exercises/tests/tests3.rs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1681636788988,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1681636799224,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,10 +3,8 @@\n // the test passes. Then write a second test that tests whether we get the result\r\n // we expect to get when we call `is_even(5)`.\r\n // Execute `rustlings hint tests3` or use the `hint` watch subcommand for a hint.\r\n \r\n-// I AM NOT DONE\r\n-\r\n pub fn is_even(num: i32) -> bool {\r\n     num % 2 == 0\r\n }\r\n \r\n@@ -20,7 +18,7 @@\n     }\r\n \r\n     #[test]\r\n     fn is_false_when_odd() {\r\n-        assert!(is_even(3));\r\n+        assert!(!is_even(3));\r\n     }\r\n }\r\n"
+                }
+            ],
+            "date": 1681636788988,
+            "name": "Commit-0",
+            "content": "// tests3.rs\r\n// This test isn't testing our function -- make it do that in such a way that\r\n// the test passes. Then write a second test that tests whether we get the result\r\n// we expect to get when we call `is_even(5)`.\r\n// Execute `rustlings hint tests3` or use the `hint` watch subcommand for a hint.\r\n\r\n// I AM NOT DONE\r\n\r\npub fn is_even(num: i32) -> bool {\r\n    num % 2 == 0\r\n}\r\n\r\n#[cfg(test)]\r\nmod tests {\r\n    use super::*;\r\n\r\n    #[test]\r\n    fn is_true_when_even() {\r\n        assert!(is_even(4), true);\r\n    }\r\n\r\n    #[test]\r\n    fn is_false_when_odd() {\r\n        assert!(is_even(3));\r\n    }\r\n}\r\n"
+        }
+    ]
+}

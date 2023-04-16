@@ -1,0 +1,58 @@
+{
+    "sourceFile": "exercises/conversions/from_str.rs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1681638491228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1681638608173,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n // string error message, you can do so via just using return `Err(\"my error message\".into())`.\r\n \r\n impl FromStr for Person {\r\n     type Err = ParsePersonError;\r\n-    fn from_str(s: &str) -> Result<Person, Self::Err> {\r\n+    fn from_str(s: &str) -> Result<Se, Self::Err> {\r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681638668590,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,10 @@\n // string error message, you can do so via just using return `Err(\"my error message\".into())`.\r\n \r\n impl FromStr for Person {\r\n     type Err = ParsePersonError;\r\n-    fn from_str(s: &str) -> Result<Se, Self::Err> {\r\n+    fn from_str(s: &str) -> Result<Self, Self::Err> {\r\n+        \r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681638677774,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,24 @@\n \r\n impl FromStr for Person {\r\n     type Err = ParsePersonError;\r\n     fn from_str(s: &str) -> Result<Self, Self::Err> {\r\n-        \r\n+        if s.is_empty() {\r\n+            return Err(Self::Err::Empty);\r\n+        }\r\n+        let (name, age) = match s.split_once(',') {\r\n+            Some((name, age)) => (name.to_owned(), age),\r\n+            None => Err(Self::Err::BadLen),\r\n+        };\r\n+        if name.is_empty() {\r\n+            return Err(Self::Err::NoName);\r\n+        }\r\n+\r\n+        match age.parse() {\r\n+            Ok(age) => Ok(Self { name, age }),\r\n+            Err(_) => Err(Self::Err::ParseInt(err)),\r\n+        }\r\n+\r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681638808923,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -57,9 +57,9 @@\n         }\r\n \r\n         match age.parse() {\r\n             Ok(age) => Ok(Self { name, age }),\r\n-            Err(_) => Err(Self::Err::ParseInt(err)),\r\n+            Err(err) => Err(Self::Err::ParseInt(err)),\r\n         }\r\n \r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1681639744578,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n         if s.is_empty() {\r\n             return Err(Self::Err::Empty);\r\n         }\r\n         let (name, age) = match s.split_once(',') {\r\n-            Some((name, age)) => (name.to_owned(), age),\r\n+            Some((name, age)) => (name.to_owned(), age as ),\r\n             None => Err(Self::Err::BadLen),\r\n         };\r\n         if name.is_empty() {\r\n             return Err(Self::Err::NoName);\r\n"
+                },
+                {
+                    "date": 1681639786688,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n         if s.is_empty() {\r\n             return Err(Self::Err::Empty);\r\n         }\r\n         let (name, age) = match s.split_once(',') {\r\n-            Some((name, age)) => (name.to_owned(), age as ),\r\n+            Some((name, age)) => (name.to_owned(), age as usize),\r\n             None => Err(Self::Err::BadLen),\r\n         };\r\n         if name.is_empty() {\r\n             return Err(Self::Err::NoName);\r\n"
+                },
+                {
+                    "date": 1681639890713,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n         if s.is_empty() {\r\n             return Err(Self::Err::Empty);\r\n         }\r\n         let (name, age) = match s.split_once(',') {\r\n-            Some((name, age)) => (name.to_owned(), age as usize),\r\n+            Some((name, age)) => (name.to_owned(), age),\r\n             None => Err(Self::Err::BadLen),\r\n         };\r\n         if name.is_empty() {\r\n             return Err(Self::Err::NoName);\r\n"
+                },
+                {
+                    "date": 1681640706447,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n         if s.is_empty() {\r\n             return Err(Self::Err::Empty);\r\n         }\r\n         let (name, age) = match s.split_once(',') {\r\n-            Some((name, age)) => (name.to_owned(), age),\r\n+            Some((name, age)) => (name, age),\r\n             None => Err(Self::Err::BadLen),\r\n         };\r\n         if name.is_empty() {\r\n             return Err(Self::Err::NoName);\r\n"
+                },
+                {
+                    "date": 1681640719733,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n         if s.is_empty() {\r\n             return Err(Self::Err::Empty);\r\n         }\r\n         let (name, age) = match s.split_once(',') {\r\n-            Some((name, age)) => (name, age),\r\n+            Some((name, age)) => (name.to_owned(), age ),\r\n             None => Err(Self::Err::BadLen),\r\n         };\r\n         if name.is_empty() {\r\n             return Err(Self::Err::NoName);\r\n"
+                },
+                {
+                    "date": 1681640727175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n         if s.is_empty() {\r\n             return Err(Self::Err::Empty);\r\n         }\r\n         let (name, age) = match s.split_once(',') {\r\n-            Some((name, age)) => (name.to_owned(), age ),\r\n+            Some((name, age)) => (name.to_owned(), age. ),\r\n             None => Err(Self::Err::BadLen),\r\n         };\r\n         if name.is_empty() {\r\n             return Err(Self::Err::NoName);\r\n"
+                }
+            ],
+            "date": 1681638491228,
+            "name": "Commit-0",
+            "content": "// from_str.rs\r\n// This is similar to from_into.rs, but this time we'll implement `FromStr`\r\n// and return errors instead of falling back to a default value.\r\n// Additionally, upon implementing FromStr, you can use the `parse` method\r\n// on strings to generate an object of the implementor type.\r\n// You can read more about it at https://doc.rust-lang.org/std/str/trait.FromStr.html\r\n// Execute `rustlings hint from_str` or use the `hint` watch subcommand for a hint.\r\n\r\nuse std::num::ParseIntError;\r\nuse std::str::FromStr;\r\n\r\n#[derive(Debug, PartialEq)]\r\nstruct Person {\r\n    name: String,\r\n    age: usize,\r\n}\r\n\r\n// We will use this error type for the `FromStr` implementation.\r\n#[derive(Debug, PartialEq)]\r\nenum ParsePersonError {\r\n    // Empty input string\r\n    Empty,\r\n    // Incorrect number of fields\r\n    BadLen,\r\n    // Empty name field\r\n    NoName,\r\n    // Wrapped error from parse::<usize>()\r\n    ParseInt(ParseIntError),\r\n}\r\n\r\n\r\n// Steps:\r\n// 1. If the length of the provided string is 0, an error should be returned\r\n// 2. Split the given string on the commas present in it\r\n// 3. Only 2 elements should be returned from the split, otherwise return an error\r\n// 4. Extract the first element from the split operation and use it as the name\r\n// 5. Extract the other element from the split operation and parse it into a `usize` as the age\r\n//    with something like `\"4\".parse::<usize>()`\r\n// 6. If while extracting the name and the age something goes wrong, an error should be returned\r\n// If everything goes well, then return a Result of a Person object\r\n//\r\n// As an aside: `Box<dyn Error>` implements `From<&'_ str>`. This means that if you want to return a\r\n// string error message, you can do so via just using return `Err(\"my error message\".into())`.\r\n\r\nimpl FromStr for Person {\r\n    type Err = ParsePersonError;\r\n    fn from_str(s: &str) -> Result<Person, Self::Err> {\r\n    }\r\n}\r\n\r\nfn main() {\r\n    let p = \"Mark,20\".parse::<Person>().unwrap();\r\n    println!(\"{:?}\", p);\r\n}\r\n\r\n#[cfg(test)]\r\nmod tests {\r\n    use super::*;\r\n\r\n    #[test]\r\n    fn empty_input() {\r\n        assert_eq!(\"\".parse::<Person>(), Err(ParsePersonError::Empty));\r\n    }\r\n    #[test]\r\n    fn good_input() {\r\n        let p = \"John,32\".parse::<Person>();\r\n        assert!(p.is_ok());\r\n        let p = p.unwrap();\r\n        assert_eq!(p.name, \"John\");\r\n        assert_eq!(p.age, 32);\r\n    }\r\n    #[test]\r\n    fn missing_age() {\r\n        assert!(matches!(\r\n            \"John,\".parse::<Person>(),\r\n            Err(ParsePersonError::ParseInt(_))\r\n        ));\r\n    }\r\n\r\n    #[test]\r\n    fn invalid_age() {\r\n        assert!(matches!(\r\n            \"John,twenty\".parse::<Person>(),\r\n            Err(ParsePersonError::ParseInt(_))\r\n        ));\r\n    }\r\n\r\n    #[test]\r\n    fn missing_comma_and_age() {\r\n        assert_eq!(\"John\".parse::<Person>(), Err(ParsePersonError::BadLen));\r\n    }\r\n\r\n    #[test]\r\n    fn missing_name() {\r\n        assert_eq!(\",1\".parse::<Person>(), Err(ParsePersonError::NoName));\r\n    }\r\n\r\n    #[test]\r\n    fn missing_name_and_age() {\r\n        assert!(matches!(\r\n            \",\".parse::<Person>(),\r\n            Err(ParsePersonError::NoName | ParsePersonError::ParseInt(_))\r\n        ));\r\n    }\r\n\r\n    #[test]\r\n    fn missing_name_and_invalid_age() {\r\n        assert!(matches!(\r\n            \",one\".parse::<Person>(),\r\n            Err(ParsePersonError::NoName | ParsePersonError::ParseInt(_))\r\n        ));\r\n    }\r\n\r\n    #[test]\r\n    fn trailing_comma() {\r\n        assert_eq!(\"John,32,\".parse::<Person>(), Err(ParsePersonError::BadLen));\r\n    }\r\n\r\n    #[test]\r\n    fn trailing_comma_and_some_string() {\r\n        assert_eq!(\r\n            \"John,32,man\".parse::<Person>(),\r\n            Err(ParsePersonError::BadLen)\r\n        );\r\n    }\r\n}\r\n"
+        }
+    ]
+}

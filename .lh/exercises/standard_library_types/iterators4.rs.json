@@ -1,0 +1,82 @@
+{
+    "sourceFile": "exercises/standard_library_types/iterators4.rs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 16,
+            "patches": [
+                {
+                    "date": 1681634483485,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1681634717850,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n     // - additional variables\r\n     // For an extra challenge, don't use:\r\n     // - recursion\r\n     // Execute `rustlings hint iterators4` for hints.\r\n-    \r\n+    let \r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681634730280,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,11 @@\n     // - additional variables\r\n     // For an extra challenge, don't use:\r\n     // - recursion\r\n     // Execute `rustlings hint iterators4` for hints.\r\n-    let \r\n+    let num = 1;\r\n+\r\n+    num\r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681634739463,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     // For an extra challenge, don't use:\r\n     // - recursion\r\n     // Execute `rustlings hint iterators4` for hints.\r\n     let num = 1;\r\n-\r\n+    num *= \r\n     num\r\n }\r\n \r\n #[cfg(test)]\r\n"
+                },
+                {
+                    "date": 1681634848974,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,10 @@\n     // - additional variables\r\n     // For an extra challenge, don't use:\r\n     // - recursion\r\n     // Execute `rustlings hint iterators4` for hints.\r\n-    let num = 1;\r\n-    num *= \r\n+    let re = 1;\r\n+    num *= map\r\n     num\r\n }\r\n \r\n #[cfg(test)]\r\n"
+                },
+                {
+                    "date": 1681634855248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,10 +12,10 @@\n     // - additional variables\r\n     // For an extra challenge, don't use:\r\n     // - recursion\r\n     // Execute `rustlings hint iterators4` for hints.\r\n-    let re = 1;\r\n-    num *= map\r\n+    let result = 1;\r\n+    result  *= map\r\n     num\r\n }\r\n \r\n #[cfg(test)]\r\n"
+                },
+                {
+                    "date": 1681634867866,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,10 +13,10 @@\n     // For an extra challenge, don't use:\r\n     // - recursion\r\n     // Execute `rustlings hint iterators4` for hints.\r\n     let result = 1;\r\n-    result  *= map\r\n-    num\r\n+    result *= map\r\n+    result\r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681634874002,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,8 +12,11 @@\n     // - additional variables\r\n     // For an extra challenge, don't use:\r\n     // - recursion\r\n     // Execute `rustlings hint iterators4` for hints.\r\n+    if num == 0 {\r\n+        \r\n+    }\r\n     let result = 1;\r\n     result *= map\r\n     result\r\n }\r\n"
+                },
+                {
+                    "date": 1681634885696,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,13 +13,11 @@\n     // For an extra challenge, don't use:\r\n     // - recursion\r\n     // Execute `rustlings hint iterators4` for hints.\r\n     if num == 0 {\r\n-        \r\n+        return 1\r\n     }\r\n-    let result = 1;\r\n-    result *= map\r\n-    result\r\n+    \r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681634895077,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,12 @@\n     // Execute `rustlings hint iterators4` for hints.\r\n     if num == 0 {\r\n         return 1\r\n     }\r\n+    else {\r\n+        let result = 1;\r\n+         \r\n+    }\r\n     \r\n }\r\n \r\n #[cfg(test)]\r\n"
+                },
+                {
+                    "date": 1681634901691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n         return 1\r\n     }\r\n     else {\r\n         let result = 1;\r\n-         \r\n+        result *= \r\n     }\r\n     \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681635162183,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,10 +16,9 @@\n     if num == 0 {\r\n         return 1\r\n     }\r\n     else {\r\n-        let result = 1;\r\n-        result *= \r\n+        \r\n     }\r\n     \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681635167768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     if num == 0 {\r\n         return 1\r\n     }\r\n     else {\r\n-        \r\n+        (1..=n)\r\n     }\r\n     \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681635173943,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     if num == 0 {\r\n         return 1\r\n     }\r\n     else {\r\n-        (1..=n)\r\n+        (1..=n).into_iter()\r\n     }\r\n     \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681635182421,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     if num == 0 {\r\n         return 1\r\n     }\r\n     else {\r\n-        (1..=n).into_iter()\r\n+        (1..=n).into_iter().product()\r\n     }\r\n     \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681635191892,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,9 +16,9 @@\n     if num == 0 {\r\n         return 1\r\n     }\r\n     else {\r\n-        (1..=n).into_iter().product()\r\n+        (1..=num).into_iter().product()\r\n     }\r\n     \r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681635212923,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,7 @@\n // iterators4.rs\r\n // Execute `rustlings hint iterators4` or use the `hint` watch subcommand for a hint.\r\n \r\n-// I AM NOT DONE\r\n-\r\n pub fn factorial(num: u64) -> u64 {\r\n     // Complete this function to return the factorial of num\r\n     // Do not use:\r\n     // - return\r\n"
+                }
+            ],
+            "date": 1681634483485,
+            "name": "Commit-0",
+            "content": "// iterators4.rs\r\n// Execute `rustlings hint iterators4` or use the `hint` watch subcommand for a hint.\r\n\r\n// I AM NOT DONE\r\n\r\npub fn factorial(num: u64) -> u64 {\r\n    // Complete this function to return the factorial of num\r\n    // Do not use:\r\n    // - return\r\n    // Try not to use:\r\n    // - imperative style loops (for, while)\r\n    // - additional variables\r\n    // For an extra challenge, don't use:\r\n    // - recursion\r\n    // Execute `rustlings hint iterators4` for hints.\r\n    \r\n}\r\n\r\n#[cfg(test)]\r\nmod tests {\r\n    use super::*;\r\n\r\n    #[test]\r\n    fn factorial_of_0() {\r\n        assert_eq!(1, factorial(0));\r\n    }\r\n\r\n    #[test]\r\n    fn factorial_of_1() {\r\n        assert_eq!(1, factorial(1));\r\n    }\r\n    #[test]\r\n    fn factorial_of_2() {\r\n        assert_eq!(2, factorial(2));\r\n    }\r\n\r\n    #[test]\r\n    fn factorial_of_4() {\r\n        assert_eq!(24, factorial(4));\r\n    }\r\n}\r\n"
+        }
+    ]
+}

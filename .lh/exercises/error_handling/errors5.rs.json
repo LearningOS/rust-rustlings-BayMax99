@@ -1,0 +1,18 @@
+{
+    "sourceFile": "exercises/error_handling/errors5.rs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1681636593220,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1681636593220,
+            "name": "Commit-0",
+            "content": "// errors5.rs\r\n\r\n// This program uses an altered version of the code from errors4.\r\n\r\n// This exercise uses some concepts that we won't get to until later in the course, like `Box` and the\r\n// `From` trait. It's not important to understand them in detail right now, but you can read ahead if you like.\r\n// For now, think of the `Box<dyn ...>` type as an \"I want anything that does ???\" type, which, given\r\n// Rust's usual standards for runtime safety, should strike you as somewhat lenient!\r\n\r\n// In short, this particular use case for boxes is for when you want to own a value and you care only that it is a \r\n// type which implements a particular trait. To do so, The Box is declared as of type Box<dyn Trait> where Trait is the trait\r\n// the compiler looks for on any value used in that context. For this exercise, that context is the potential errors\r\n// which can be returned in a Result.\r\n\r\n// What can we use to describe both errors? In other words, is there a trait which both errors implement?\r\n\r\n// Execute `rustlings hint errors5` or use the `hint` watch subcommand for a hint.\r\n\r\n\r\nuse std::error;\r\nuse std::fmt;\r\nuse std::num::ParseIntError;\r\n\r\n// TODO: update the return type of `main()` to make this compile.\r\nfn main() -> Result<(), Box<dyn error::Error>> {\r\n    let pretend_user_input = \"42\";\r\n    let x: i64 = pretend_user_input.parse()?;\r\n    println!(\"output={:?}\", PositiveNonzeroInteger::new(x)?);\r\n    Ok(())\r\n}\r\n\r\n// Don't change anything below this line.\r\n\r\n#[derive(PartialEq, Debug)]\r\nstruct PositiveNonzeroInteger(u64);\r\n\r\n#[derive(PartialEq, Debug)]\r\nenum CreationError {\r\n    Negative,\r\n    Zero,\r\n}\r\n\r\nimpl PositiveNonzeroInteger {\r\n    fn new(value: i64) -> Result<PositiveNonzeroInteger, CreationError> {\r\n        match value {\r\n            x if x < 0 => Err(CreationError::Negative),\r\n            x if x == 0 => Err(CreationError::Zero),\r\n            x => Ok(PositiveNonzeroInteger(x as u64))\r\n        }\r\n    }\r\n}\r\n\r\n// This is required so that `CreationError` can implement `error::Error`.\r\nimpl fmt::Display for CreationError {\r\n    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {\r\n        let description = match *self {\r\n            CreationError::Negative => \"number is negative\",\r\n            CreationError::Zero => \"number is zero\",\r\n        };\r\n        f.write_str(description)\r\n    }\r\n}\r\n\r\nimpl error::Error for CreationError {}\r\n"
+        }
+    ]
+}

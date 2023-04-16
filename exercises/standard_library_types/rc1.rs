@@ -5,7 +5,8 @@
 
 // Make this code compile by using the proper Rc primitives to express that the sun has multiple owners.
 
-// I AM NOT DONE
+// Rc::new是创建Rc智能指针所需的函数之一，接收一个值并返回一个指向该值的Rc智能指针
+// Rc:clone是用于克隆Rc智能指针的方法，不会创建一个新的资源，而是增加指向相同资源的引用计数器
 use std::rc::Rc;
 
 #[derive(Debug)]
@@ -54,17 +55,17 @@ fn main() {
     jupiter.details();
 
     // TODO
-    let saturn = Planet::Saturn(Rc::new(Sun {}));
+    let saturn = Planet::Saturn(Rc::clone(&sun));
     println!("reference count = {}", Rc::strong_count(&sun)); // 7 references
     saturn.details();
 
     // TODO
-    let uranus = Planet::Uranus(Rc::new(Sun {}));
+    let uranus = Planet::Uranus(Rc::clone(&sun));
     println!("reference count = {}", Rc::strong_count(&sun)); // 8 references
     uranus.details();
 
     // TODO
-    let neptune = Planet::Neptune(Rc::new(Sun {}));
+    let neptune = Planet::Neptune(Rc::clone(&sun));
     println!("reference count = {}", Rc::strong_count(&sun)); // 9 references
     neptune.details();
 
@@ -86,12 +87,15 @@ fn main() {
     println!("reference count = {}", Rc::strong_count(&sun)); // 4 references
 
     // TODO
+    drop(earth);
     println!("reference count = {}", Rc::strong_count(&sun)); // 3 references
 
     // TODO
+    drop(venus);
     println!("reference count = {}", Rc::strong_count(&sun)); // 2 references
 
     // TODO
+    drop(mercury);
     println!("reference count = {}", Rc::strong_count(&sun)); // 1 reference
 
     assert_eq!(Rc::strong_count(&sun), 1);

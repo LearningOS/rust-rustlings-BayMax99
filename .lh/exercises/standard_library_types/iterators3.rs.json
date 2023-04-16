@@ -1,0 +1,142 @@
+{
+    "sourceFile": "exercises/standard_library_types/iterators3.rs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 31,
+            "patches": [
+                {
+                    "date": 1681635890891,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1681635898075,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,11 @@\n // Calculate `a` divided by `b` if `a` is evenly divisible by `b`.\r\n // Otherwise, return a suitable error.\r\n pub fn divide(a: i32, b: i32) -> Result<i32, DivisionError> {\r\n     // todo!();\r\n-    \r\n+    if b == 0 {\r\n+        \r\n+    }\r\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n // Desired output: Ok([1, 11, 1426, 3])\r\n"
+                },
+                {
+                    "date": 1681635908940,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n // Otherwise, return a suitable error.\r\n pub fn divide(a: i32, b: i32) -> Result<i32, DivisionError> {\r\n     // todo!();\r\n     if b == 0 {\r\n-        \r\n+        Err(DivisionError::Di)\r\n     }\r\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n"
+                },
+                {
+                    "date": 1681635914394,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,10 +24,10 @@\n // Otherwise, return a suitable error.\r\n pub fn divide(a: i32, b: i32) -> Result<i32, DivisionError> {\r\n     // todo!();\r\n     if b == 0 {\r\n-        Err(DivisionError::Di)\r\n-    }\r\n+        Err(DivisionError::DivideByZero)\r\n+    } else if \r\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n // Desired output: Ok([1, 11, 1426, 3])\r\n"
+                },
+                {
+                    "date": 1681635919980,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,11 @@\n pub fn divide(a: i32, b: i32) -> Result<i32, DivisionError> {\r\n     // todo!();\r\n     if b == 0 {\r\n         Err(DivisionError::DivideByZero)\r\n-    } else if \r\n+    } else if a % b == 0 {\r\n+        \r\n+    }\r\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n // Desired output: Ok([1, 11, 1426, 3])\r\n"
+                },
+                {
+                    "date": 1681635925419,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n     // todo!();\r\n     if b == 0 {\r\n         Err(DivisionError::DivideByZero)\r\n     } else if a % b == 0 {\r\n-        \r\n+        Ok(a/b)\r\n     }\r\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n"
+                },
+                {
+                    "date": 1681635931723,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,10 @@\n     if b == 0 {\r\n         Err(DivisionError::DivideByZero)\r\n     } else if a % b == 0 {\r\n         Ok(a/b)\r\n+    } else {\r\n+        Err\r\n     }\r\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n"
+                },
+                {
+                    "date": 1681635937590,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n         Err(DivisionError::DivideByZero)\r\n     } else if a % b == 0 {\r\n         Ok(a/b)\r\n     } else {\r\n-        Err\r\n+        Err(DivisionError)\r\n     }\r\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n"
+                },
+                {
+                    "date": 1681635946673,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n         Err(DivisionError::DivideByZero)\r\n     } else if a % b == 0 {\r\n         Ok(a/b)\r\n     } else {\r\n-        Err(DivisionError)\r\n+        Err(DivisionError::NotDivisible)\r\n     }\r\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n"
+                },
+                {
+                    "date": 1681635952760,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n         Err(DivisionError::DivideByZero)\r\n     } else if a % b == 0 {\r\n         Ok(a/b)\r\n     } else {\r\n-        Err(DivisionError::NotDivisible)\r\n+        Err(DivisionError::NotDivisible())\r\n     }\r\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n"
+                },
+                {
+                    "date": 1681635959008,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,11 @@\n         Err(DivisionError::DivideByZero)\r\n     } else if a % b == 0 {\r\n         Ok(a/b)\r\n     } else {\r\n-        Err(DivisionError::NotDivisible())\r\n+        Err(DivisionError::NotDivisible(NotDivisibleError {\r\n+            \r\n+        }))\r\n     }\r\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n"
+                },
+                {
+                    "date": 1681635965527,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,8 +29,9 @@\n     } else if a % b == 0 {\r\n         Ok(a/b)\r\n     } else {\r\n         Err(DivisionError::NotDivisible(NotDivisibleError {\r\n+            dividend: a,\r\n             \r\n         }))\r\n     }\r\n }\r\n"
+                },
+                {
+                    "date": 1681635972506,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n         Ok(a/b)\r\n     } else {\r\n         Err(DivisionError::NotDivisible(NotDivisibleError {\r\n             dividend: a,\r\n-            \r\n+            divisor: b,\r\n         }))\r\n     }\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681635989426,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,8 +40,9 @@\n // Desired output: Ok([1, 11, 1426, 3])\r\n fn result_with_list() -> () {\r\n     let numbers = vec![27, 297, 38502, 81];\r\n     let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n+    \r\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n // Desired output: [Ok(1), Ok(11), Ok(1426), Ok(3)]\r\n"
+                },
+                {
+                    "date": 1681635995661,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n // Desired output: Ok([1, 11, 1426, 3])\r\n fn result_with_list() -> () {\r\n     let numbers = vec![27, 297, 38502, 81];\r\n     let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n-    \r\n+    division_results.\r\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n // Desired output: [Ok(1), Ok(11), Ok(1426), Ok(3)]\r\n"
+                },
+                {
+                    "date": 1681636001072,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n // Desired output: Ok([1, 11, 1426, 3])\r\n fn result_with_list() -> () {\r\n     let numbers = vec![27, 297, 38502, 81];\r\n     let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n-    division_results.\r\n+    division_results.collect()\r\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n // Desired output: [Ok(1), Ok(11), Ok(1426), Ok(3)]\r\n"
+                },
+                {
+                    "date": 1681636049481,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,9 @@\n // Desired output: [Ok(1), Ok(11), Ok(1426), Ok(3)]\r\n fn list_of_results() -> () {\r\n     let numbers = vec![27, 297, 38502, 81];\r\n     let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n+    \r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681636056286,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n // Desired output: [Ok(1), Ok(11), Ok(1426), Ok(3)]\r\n fn list_of_results() -> () {\r\n     let numbers = vec![27, 297, 38502, 81];\r\n     let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n-    \r\n+    division_results\r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681636063163,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,9 @@\n // Desired output: [Ok(1), Ok(11), Ok(1426), Ok(3)]\r\n fn list_of_results() -> () {\r\n     let numbers = vec![27, 297, 38502, 81];\r\n     let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n-    division_results\r\n+    division_results.collect()\r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681636140047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n // Desired output: Ok([1, 11, 1426, 3])\r\n-fn result_with_list() -> () {\r\n+fn result_with_list() -> {\r\n     let numbers = vec![27, 297, 38502, 81];\r\n     let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n     division_results.collect()\r\n }\r\n"
+                },
+                {
+                    "date": 1681636147148,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n // Desired output: Ok([1, 11, 1426, 3])\r\n-fn result_with_list() -> {\r\n+fn result_with_list() -> Result<{\r\n     let numbers = vec![27, 297, 38502, 81];\r\n     let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n     division_results.collect()\r\n }\r\n"
+                },
+                {
+                    "date": 1681636153269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n // Desired output: Ok([1, 11, 1426, 3])\r\n-fn result_with_list() -> Result<{\r\n+fn result_with_list() -> Result<Vec<i32>{\r\n     let numbers = vec![27, 297, 38502, 81];\r\n     let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n     division_results.collect()\r\n }\r\n"
+                },
+                {
+                    "date": 1681636163053,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n // Desired output: Ok([1, 11, 1426, 3])\r\n-fn result_with_list() -> Result<Vec<i32>{\r\n+fn result_with_list() -> Result<Vec<i32>, DivisionError{\r\n     let numbers = vec![27, 297, 38502, 81];\r\n     let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n     division_results.collect()\r\n }\r\n"
+                },
+                {
+                    "date": 1681636169148,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,17 +37,17 @@\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n // Desired output: Ok([1, 11, 1426, 3])\r\n-fn result_with_list() -> Result<Vec<i32>, DivisionError{\r\n+fn result_with_list() -> Result<Vec<i32>, DivisionError>{\r\n     let numbers = vec![27, 297, 38502, 81];\r\n     let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n     division_results.collect()\r\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n // Desired output: [Ok(1), Ok(11), Ok(1426), Ok(3)]\r\n-fn list_of_results() -> () {\r\n+fn list_of_results() ->  {\r\n     let numbers = vec![27, 297, 38502, 81];\r\n     let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n     division_results.collect()\r\n }\r\n"
+                },
+                {
+                    "date": 1681636174972,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n // Desired output: [Ok(1), Ok(11), Ok(1426), Ok(3)]\r\n-fn list_of_results() ->  {\r\n+fn list_of_results() -> Result< {\r\n     let numbers = vec![27, 297, 38502, 81];\r\n     let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n     division_results.collect()\r\n }\r\n"
+                },
+                {
+                    "date": 1681636180173,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n // Desired output: [Ok(1), Ok(11), Ok(1426), Ok(3)]\r\n-fn list_of_results() -> Result< {\r\n+fn list_of_results() -> Result<Vec[] {\r\n     let numbers = vec![27, 297, 38502, 81];\r\n     let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n     division_results.collect()\r\n }\r\n"
+                },
+                {
+                    "date": 1681636186484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n // Desired output: [Ok(1), Ok(11), Ok(1426), Ok(3)]\r\n-fn list_of_results() -> Result<Vec[] {\r\n+fn list_of_results() -> Result<Vec<i32>, Di {\r\n     let numbers = vec![27, 297, 38502, 81];\r\n     let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n     division_results.collect()\r\n }\r\n"
+                },
+                {
+                    "date": 1681636252417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n // Desired output: [Ok(1), Ok(11), Ok(1426), Ok(3)]\r\n-fn list_of_results() -> Result<Vec<i32>, Di {\r\n+fn list_of_results() -> Result<Vec<i32>, DivisionError>> {\r\n     let numbers = vec![27, 297, 38502, 81];\r\n     let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n     division_results.collect()\r\n }\r\n"
+                },
+                {
+                    "date": 1681636276055,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n // Desired output: [Ok(1), Ok(11), Ok(1426), Ok(3)]\r\n-fn list_of_results() -> Result<Vec<i32>, DivisionError>> {\r\n+fn list_of_results() ->  {\r\n     let numbers = vec![27, 297, 38502, 81];\r\n     let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n     division_results.collect()\r\n }\r\n"
+                },
+                {
+                    "date": 1681636282761,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n // Desired output: [Ok(1), Ok(11), Ok(1426), Ok(3)]\r\n-fn list_of_results() ->  {\r\n+fn list_of_results() -> Vec<Result {\r\n     let numbers = vec![27, 297, 38502, 81];\r\n     let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n     division_results.collect()\r\n }\r\n"
+                },
+                {
+                    "date": 1681636291706,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n // Desired output: [Ok(1), Ok(11), Ok(1426), Ok(3)]\r\n-fn list_of_results() -> Vec<Result {\r\n+fn list_of_results() -> Vec<Result<i32, D> {\r\n     let numbers = vec![27, 297, 38502, 81];\r\n     let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n     division_results.collect()\r\n }\r\n"
+                },
+                {
+                    "date": 1681636339093,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,8 @@\n // 2. Get the remaining tests to pass by completing the result_with_list and\r\n //    list_of_results functions.\r\n // Execute `rustlings hint iterators3` or use the `hint` watch subcommand for a hint.\r\n \r\n-// I AM NOT DONE\r\n-\r\n #[derive(Debug, PartialEq, Eq)]\r\n pub enum DivisionError {\r\n     NotDivisible(NotDivisibleError),\r\n     DivideByZero,\r\n@@ -45,9 +43,9 @@\n }\r\n \r\n // Complete the function and return a value of the correct type so the test passes.\r\n // Desired output: [Ok(1), Ok(11), Ok(1426), Ok(3)]\r\n-fn list_of_results() -> Vec<Result<i32, D> {\r\n+fn list_of_results() -> Vec<Result<i32, DivisionError>> {\r\n     let numbers = vec![27, 297, 38502, 81];\r\n     let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n     division_results.collect()\r\n }\r\n"
+                }
+            ],
+            "date": 1681635890891,
+            "name": "Commit-0",
+            "content": "// iterators3.rs\r\n// This is a bigger exercise than most of the others! You can do it!\r\n// Here is your mission, should you choose to accept it:\r\n// 1. Complete the divide function to get the first four tests to pass.\r\n// 2. Get the remaining tests to pass by completing the result_with_list and\r\n//    list_of_results functions.\r\n// Execute `rustlings hint iterators3` or use the `hint` watch subcommand for a hint.\r\n\r\n// I AM NOT DONE\r\n\r\n#[derive(Debug, PartialEq, Eq)]\r\npub enum DivisionError {\r\n    NotDivisible(NotDivisibleError),\r\n    DivideByZero,\r\n}\r\n\r\n#[derive(Debug, PartialEq, Eq)]\r\npub struct NotDivisibleError {\r\n    dividend: i32,\r\n    divisor: i32,\r\n}\r\n\r\n// Calculate `a` divided by `b` if `a` is evenly divisible by `b`.\r\n// Otherwise, return a suitable error.\r\npub fn divide(a: i32, b: i32) -> Result<i32, DivisionError> {\r\n    // todo!();\r\n    \r\n}\r\n\r\n// Complete the function and return a value of the correct type so the test passes.\r\n// Desired output: Ok([1, 11, 1426, 3])\r\nfn result_with_list() -> () {\r\n    let numbers = vec![27, 297, 38502, 81];\r\n    let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n}\r\n\r\n// Complete the function and return a value of the correct type so the test passes.\r\n// Desired output: [Ok(1), Ok(11), Ok(1426), Ok(3)]\r\nfn list_of_results() -> () {\r\n    let numbers = vec![27, 297, 38502, 81];\r\n    let division_results = numbers.into_iter().map(|n| divide(n, 27));\r\n}\r\n\r\n#[cfg(test)]\r\nmod tests {\r\n    use super::*;\r\n\r\n    #[test]\r\n    fn test_success() {\r\n        assert_eq!(divide(81, 9), Ok(9));\r\n    }\r\n\r\n    #[test]\r\n    fn test_not_divisible() {\r\n        assert_eq!(\r\n            divide(81, 6),\r\n            Err(DivisionError::NotDivisible(NotDivisibleError {\r\n                dividend: 81,\r\n                divisor: 6\r\n            }))\r\n        );\r\n    }\r\n\r\n    #[test]\r\n    fn test_divide_by_0() {\r\n        assert_eq!(divide(81, 0), Err(DivisionError::DivideByZero));\r\n    }\r\n\r\n    #[test]\r\n    fn test_divide_0_by_something() {\r\n        assert_eq!(divide(0, 81), Ok(0));\r\n    }\r\n\r\n    #[test]\r\n    fn test_result_with_list() {\r\n        assert_eq!(format!(\"{:?}\", result_with_list()), \"Ok([1, 11, 1426, 3])\");\r\n    }\r\n\r\n    #[test]\r\n    fn test_list_of_results() {\r\n        assert_eq!(\r\n            format!(\"{:?}\", list_of_results()),\r\n            \"[Ok(1), Ok(11), Ok(1426), Ok(3)]\"\r\n        );\r\n    }\r\n}\r\n"
+        }
+    ]
+}

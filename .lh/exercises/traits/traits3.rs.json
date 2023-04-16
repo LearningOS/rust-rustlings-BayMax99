@@ -1,0 +1,18 @@
+{
+    "sourceFile": "exercises/traits/traits3.rs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1681636700560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1681636700560,
+            "name": "Commit-0",
+            "content": "// traits3.rs\r\n//\r\n// Your task is to implement the Licensed trait for\r\n// both structures and have them return the same\r\n// information without writing the same function twice.\r\n//\r\n// Consider what you can add to the Licensed trait.\r\n// Execute `rustlings hint traits3` or use the `hint` watch subcommand for a hint.\r\n\r\npub trait Licensed {\r\n    fn licensing_info(&self) -> String {\r\n        \"Some information\".to_string()\r\n    }\r\n\r\n}\r\n\r\nstruct SomeSoftware {\r\n    version_number: i32,\r\n}\r\n\r\nstruct OtherSoftware {\r\n    version_number: String,\r\n}\r\n\r\nimpl Licensed for SomeSoftware {} // Don't edit this line\r\nimpl Licensed for OtherSoftware {} // Don't edit this line\r\n\r\n#[cfg(test)]\r\nmod tests {\r\n    use super::*;\r\n\r\n    #[test]\r\n    fn is_licensing_info_the_same() {\r\n        // string类型\r\n        let licensing_info = String::from(\"Some information\");\r\n        let some_software = SomeSoftware { version_number: 1 };\r\n        let other_software = OtherSoftware {\r\n            version_number: \"v2.0.0\".to_string(),\r\n        };\r\n        assert_eq!(some_software.licensing_info(), licensing_info);\r\n        assert_eq!(other_software.licensing_info(), licensing_info);\r\n    }\r\n}\r\n"
+        }
+    ]
+}

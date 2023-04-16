@@ -1,0 +1,74 @@
+{
+    "sourceFile": "exercises/error_handling/errors6.rs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 14,
+            "patches": [
+                {
+                    "date": 1681632542122,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1681632830335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,9 @@\n     // fn from_parseint...\r\n     fn from_parseint(err:ParseIntError) -> ParsePosNonzeroError {\r\n         ParsePosNonzeroError::ParseInt(err)\r\n     }\r\n+    fn\r\n }\r\n \r\n fn parse_pos_nonzero(s: &str)\r\n     -> Result<PositiveNonzeroInteger, ParsePosNonzeroError>\r\n"
+                },
+                {
+                    "date": 1681632893362,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n     // fn from_parseint...\r\n     fn from_parseint(err:ParseIntError) -> ParsePosNonzeroError {\r\n         ParsePosNonzeroError::ParseInt(err)\r\n     }\r\n-    fn\r\n+    fn \r\n }\r\n \r\n fn parse_pos_nonzero(s: &str)\r\n     -> Result<PositiveNonzeroInteger, ParsePosNonzeroError>\r\n"
+                },
+                {
+                    "date": 1681633403988,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,8 @@\n     // fn from_parseint...\r\n     fn from_parseint(err:ParseIntError) -> ParsePosNonzeroError {\r\n         ParsePosNonzeroError::ParseInt(err)\r\n     }\r\n-    fn \r\n }\r\n \r\n fn parse_pos_nonzero(s: &str)\r\n     -> Result<PositiveNonzeroInteger, ParsePosNonzeroError>\r\n"
+                },
+                {
+                    "date": 1681633425084,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,10 +35,10 @@\n {\r\n     // TODO: change this to return an appropriate error instead of panicking\r\n     // when `parse()` returns an error.\r\n     let x: i64 = s.parse().unwrap();\r\n-    PositiveNonzeroInteger::new(x)\r\n-        .map_err(ParsePosNonzeroError::ParseInt())\r\n+    // PositiveNonzeroInteger::new(x)\r\n+    //     .map_err(ParsePosNonzeroError::ParseInt())\r\n }\r\n \r\n // Don't change anything below this line.\r\n \r\n"
+                },
+                {
+                    "date": 1681633547671,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,8 +37,9 @@\n     // when `parse()` returns an error.\r\n     let x: i64 = s.parse().unwrap();\r\n     // PositiveNonzeroInteger::new(x)\r\n     //     .map_err(ParsePosNonzeroError::ParseInt())\r\n+    match Po\r\n }\r\n \r\n // Don't change anything below this line.\r\n \r\n"
+                },
+                {
+                    "date": 1681633554005,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,11 @@\n     // when `parse()` returns an error.\r\n     let x: i64 = s.parse().unwrap();\r\n     // PositiveNonzeroInteger::new(x)\r\n     //     .map_err(ParsePosNonzeroError::ParseInt())\r\n-    match Po\r\n+    match PositiveNonzeroInteger::new(x) {\r\n+        \r\n+    }\r\n }\r\n \r\n // Don't change anything below this line.\r\n \r\n"
+                },
+                {
+                    "date": 1681633563254,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n     let x: i64 = s.parse().unwrap();\r\n     // PositiveNonzeroInteger::new(x)\r\n     //     .map_err(ParsePosNonzeroError::ParseInt())\r\n     match PositiveNonzeroInteger::new(x) {\r\n-        \r\n+        Ok \r\n     }\r\n }\r\n \r\n // Don't change anything below this line.\r\n"
+                },
+                {
+                    "date": 1681633691626,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,13 +34,13 @@\n     -> Result<PositiveNonzeroInteger, ParsePosNonzeroError>\r\n {\r\n     // TODO: change this to return an appropriate error instead of panicking\r\n     // when `parse()` returns an error.\r\n-    let x: i64 = s.parse().unwrap();\r\n+    let x: i64 = s.parse().unwrap()\r\n     // PositiveNonzeroInteger::new(x)\r\n     //     .map_err(ParsePosNonzeroError::ParseInt())\r\n     match PositiveNonzeroInteger::new(x) {\r\n-        Ok \r\n+        Ok => \r\n     }\r\n }\r\n \r\n // Don't change anything below this line.\r\n"
+                },
+                {
+                    "date": 1681633702952,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n     -> Result<PositiveNonzeroInteger, ParsePosNonzeroError>\r\n {\r\n     // TODO: change this to return an appropriate error instead of panicking\r\n     // when `parse()` returns an error.\r\n-    let x: i64 = s.parse().unwrap()\r\n+    let x: i64 = match\r\n     // PositiveNonzeroInteger::new(x)\r\n     //     .map_err(ParsePosNonzeroError::ParseInt())\r\n     match PositiveNonzeroInteger::new(x) {\r\n         Ok => \r\n"
+                },
+                {
+                    "date": 1681633938746,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,13 +34,13 @@\n     -> Result<PositiveNonzeroInteger, ParsePosNonzeroError>\r\n {\r\n     // TODO: change this to return an appropriate error instead of panicking\r\n     // when `parse()` returns an error.\r\n-    let x: i64 = match\r\n+    let x: i64 = s.parse().unwrap();\r\n     // PositiveNonzeroInteger::new(x)\r\n     //     .map_err(ParsePosNonzeroError::ParseInt())\r\n     match PositiveNonzeroInteger::new(x) {\r\n-        Ok => \r\n+        Ok \r\n     }\r\n }\r\n \r\n // Don't change anything below this line.\r\n"
+                },
+                {
+                    "date": 1681633947094,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,10 @@\n     -> Result<PositiveNonzeroInteger, ParsePosNonzeroError>\r\n {\r\n     // TODO: change this to return an appropriate error instead of panicking\r\n     // when `parse()` returns an error.\r\n-    let x: i64 = s.parse().unwrap();\r\n+    // let x: i64 = s.parse().unwrap();\r\n+    let \r\n     // PositiveNonzeroInteger::new(x)\r\n     //     .map_err(ParsePosNonzeroError::ParseInt())\r\n     match PositiveNonzeroInteger::new(x) {\r\n         Ok \r\n"
+                },
+                {
+                    "date": 1681633956357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n {\r\n     // TODO: change this to return an appropriate error instead of panicking\r\n     // when `parse()` returns an error.\r\n     // let x: i64 = s.parse().unwrap();\r\n-    let \r\n+    let x: \r\n     // PositiveNonzeroInteger::new(x)\r\n     //     .map_err(ParsePosNonzeroError::ParseInt())\r\n     match PositiveNonzeroInteger::new(x) {\r\n         Ok \r\n"
+                },
+                {
+                    "date": 1681633963075,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n {\r\n     // TODO: change this to return an appropriate error instead of panicking\r\n     // when `parse()` returns an error.\r\n     // let x: i64 = s.parse().unwrap();\r\n-    let x: i64 = match \r\n+    let x: i64 = match s\r\n     // PositiveNonzeroInteger::new(x)\r\n     //     .map_err(ParsePosNonzeroError::ParseInt())\r\n     match PositiveNonzeroInteger::new(x) {\r\n         Ok \r\n"
+                },
+                {
+                    "date": 1681633969167,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n {\r\n     // TODO: change this to return an appropriate error instead of panicking\r\n     // when `parse()` returns an error.\r\n     // let x: i64 = s.parse().unwrap();\r\n-    let x: i64 = match s.parse()\r\n+    let x: i64 = match s.parse() \r\n     // PositiveNonzeroInteger::new(x)\r\n     //     .map_err(ParsePosNonzeroError::ParseInt())\r\n     match PositiveNonzeroInteger::new(x) {\r\n         Ok \r\n"
+                }
+            ],
+            "date": 1681632542122,
+            "name": "Commit-0",
+            "content": "// errors6.rs\r\n\r\n// Using catch-all error types like `Box<dyn error::Error>` isn't recommended\r\n// for library code, where callers might want to make decisions based on the\r\n// error content, instead of printing it out or propagating it further. Here,\r\n// we define a custom error type to make it possible for callers to decide\r\n// what to do next when our function returns an error.\r\n\r\n// Execute `rustlings hint errors6` or use the `hint` watch subcommand for a hint.\r\n\r\n// I AM NOT DONE\r\n\r\nuse std::num::ParseIntError;\r\n\r\n// This is a custom error type that we will be using in `parse_pos_nonzero()`.\r\n#[derive(PartialEq, Debug)]\r\nenum ParsePosNonzeroError {\r\n    Creation(CreationError),\r\n    ParseInt(ParseIntError)\r\n}\r\n\r\nimpl ParsePosNonzeroError {\r\n    fn from_creation(err: CreationError) -> ParsePosNonzeroError {\r\n        ParsePosNonzeroError::Creation(err)\r\n    }\r\n    // TODO: add another error conversion function here.\r\n    // fn from_parseint...\r\n    fn from_parseint(err:ParseIntError) -> ParsePosNonzeroError {\r\n        ParsePosNonzeroError::ParseInt(err)\r\n    }\r\n}\r\n\r\nfn parse_pos_nonzero(s: &str)\r\n    -> Result<PositiveNonzeroInteger, ParsePosNonzeroError>\r\n{\r\n    // TODO: change this to return an appropriate error instead of panicking\r\n    // when `parse()` returns an error.\r\n    let x: i64 = s.parse().unwrap();\r\n    PositiveNonzeroInteger::new(x)\r\n        .map_err(ParsePosNonzeroError::ParseInt())\r\n}\r\n\r\n// Don't change anything below this line.\r\n\r\n#[derive(PartialEq, Debug)]\r\nstruct PositiveNonzeroInteger(u64);\r\n\r\n#[derive(PartialEq, Debug)]\r\nenum CreationError {\r\n    Negative,\r\n    Zero,\r\n}\r\n\r\nimpl PositiveNonzeroInteger {\r\n    fn new(value: i64) -> Result<PositiveNonzeroInteger, CreationError> {\r\n        match value {\r\n            x if x < 0 => Err(CreationError::Negative),\r\n            x if x == 0 => Err(CreationError::Zero),\r\n            x => Ok(PositiveNonzeroInteger(x as u64))\r\n        }\r\n    }\r\n}\r\n\r\n#[cfg(test)]\r\nmod test {\r\n    use super::*;\r\n\r\n    #[test]\r\n    fn test_parse_error() {\r\n        // We can't construct a ParseIntError, so we have to pattern match.\r\n        assert!(matches!(\r\n            parse_pos_nonzero(\"not a number\"),\r\n            Err(ParsePosNonzeroError::ParseInt(_))\r\n        ));\r\n    }\r\n\r\n    #[test]\r\n    fn test_negative() {\r\n        assert_eq!(\r\n            parse_pos_nonzero(\"-555\"),\r\n            Err(ParsePosNonzeroError::Creation(CreationError::Negative))\r\n        );\r\n    }\r\n\r\n    #[test]\r\n    fn test_zero() {\r\n        assert_eq!(\r\n            parse_pos_nonzero(\"0\"),\r\n            Err(ParsePosNonzeroError::Creation(CreationError::Zero))\r\n        );\r\n    }\r\n\r\n    #[test]\r\n    fn test_positive() {\r\n        let x = PositiveNonzeroInteger::new(42);\r\n        assert!(x.is_ok());\r\n        assert_eq!(parse_pos_nonzero(\"42\"), Ok(x.unwrap()));\r\n    }\r\n}\r\n"
+        }
+    ]
+}
