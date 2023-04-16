@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 7,
+            "activePatchIndex": 9,
             "patches": [
                 {
                     "date": 1681642158685,
@@ -36,6 +36,14 @@
                 {
                     "date": 1681642490680,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,14 +6,15 @@\n // check clippy's suggestions from the output to solve the exercise.\r\n // Execute `rustlings hint clippy1` or use the `hint` watch subcommand for a hint.\r\n \r\n use std::f32;\r\n+use core::f32::consts::PI;\r\n \r\n fn main() {\r\n     // let pi:f32 = 3.14;\r\n     let radius:f32 = 5.00;\r\n \r\n-    let area = pi * f32::powi(radius, 2);\r\n+    let area = PI * f32::powi(radius, 2);\r\n \r\n     println!(\r\n         \"The area of a circle with radius {:.2} is {:.5}!\",\r\n         radius, area\r\n"
+                },
+                {
+                    "date": 1681647552004,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,10 +5,9 @@\n // For these exercises the code will fail to compile when there are clippy warnings\r\n // check clippy's suggestions from the output to solve the exercise.\r\n // Execute `rustlings hint clippy1` or use the `hint` watch subcommand for a hint.\r\n \r\n-use std::f32;\r\n-use core::f32::consts::PI;\r\n+use std::f32\r\n \r\n fn main() {\r\n     // let pi:f32 = 3.14;\r\n     let radius:f32 = 5.00;\r\n"
+                },
+                {
+                    "date": 1681647558473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,12 +5,12 @@\n // For these exercises the code will fail to compile when there are clippy warnings\r\n // check clippy's suggestions from the output to solve the exercise.\r\n // Execute `rustlings hint clippy1` or use the `hint` watch subcommand for a hint.\r\n \r\n-use std::f32\r\n+use std::f32;\r\n \r\n fn main() {\r\n-    // let pi:f32 = 3.14;\r\n+    let pi:f32 = 3.14;\r\n     let radius:f32 = 5.00;\r\n \r\n     let area = PI * f32::powi(radius, 2);\r\n \r\n"
                 }
             ],
             "date": 1681642158685,
