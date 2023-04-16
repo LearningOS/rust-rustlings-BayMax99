@@ -3,7 +3,7 @@
     "activeCommit": 0,
     "commits": [
         {
-            "activePatchIndex": 2,
+            "activePatchIndex": 3,
             "patches": [
                 {
                     "date": 1681642800089,
@@ -16,6 +16,10 @@
                 {
                     "date": 1681643243252,
                     "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,8 +80,26 @@\n // Slice implementation\r\n impl TryFrom<&[i16]> for Color {\r\n     type Error = IntoColorError;\r\n     fn try_from(slice: &[i16]) -> Result<Self, Self::Error> {\r\n+        if slice.len() != 3 {\r\n+            return Err(Self::Error::BadLen);\r\n+        }\r\n+\r\n+        let red = match slice[0].try_into() {\r\n+            Ok(x) => x,\r\n+            _ => return Err(Self::Error::IntConversion),\r\n+        };\r\n+        let green = match slice[1].try_into() {\r\n+            Ok(x) => x,\r\n+            _ => return Err(Self::Error::IntConversion),\r\n+        };\r\n+        let blue = match slice[2].try_into() {\r\n+            Ok(x) => x,\r\n+            _ => return Err(Self::Error::IntConversion),\r\n+        };\r\n+        Ok(Self { red, green, blue })\r\n+\r\n     }\r\n }\r\n \r\n fn main() {\r\n"
+                },
+                {
+                    "date": 1681644367971,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,10 +22,8 @@\n     // Integer conversion error\r\n     IntConversion,\r\n }\r\n \r\n-// I AM NOT DONE\r\n-\r\n // Your task is to complete this implementation\r\n // and return an Ok result of inner type Color.\r\n // You need to create an implementation for a tuple of three integers,\r\n // an array of three integers, and a slice of integers.\r\n"
                 }
             ],
             "date": 1681642800089,

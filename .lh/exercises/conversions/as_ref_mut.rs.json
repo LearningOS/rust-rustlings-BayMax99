@@ -1,0 +1,82 @@
+{
+    "sourceFile": "exercises/conversions/as_ref_mut.rs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 16,
+            "patches": [
+                {
+                    "date": 1681644435742,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1681644442622,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,9 @@\n \r\n // Squares a number using as_mut(). Add the trait bound as is appropriate and\r\n // implement the function body.\r\n fn num_sq<T>(arg: &mut T) \r\n+where \r\n {\r\n     ???\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681644448467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \r\n // Squares a number using as_mut(). Add the trait bound as is appropriate and\r\n // implement the function body.\r\n fn num_sq<T>(arg: &mut T) \r\n-where \r\n+where T: \r\n {\r\n     ???\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681644455334,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n \r\n // Squares a number using as_mut(). Add the trait bound as is appropriate and\r\n // implement the function body.\r\n fn num_sq<T>(arg: &mut T) \r\n-where T: \r\n+where T: AsMut<u32>\r\n {\r\n     ???\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681644460785,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n // implement the function body.\r\n fn num_sq<T>(arg: &mut T) \r\n where T: AsMut<u32>\r\n {\r\n-    ???\r\n+    let a\r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681644466552,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n // implement the function body.\r\n fn num_sq<T>(arg: &mut T) \r\n where T: AsMut<u32>\r\n {\r\n-    let a\r\n+    let arg: &mut \r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681644479857,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n // implement the function body.\r\n fn num_sq<T>(arg: &mut T) \r\n where T: AsMut<u32>\r\n {\r\n-    let arg: &mut \r\n+    let arg: \r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681644488417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n // implement the function body.\r\n fn num_sq<T>(arg: &mut T) \r\n where T: AsMut<u32>\r\n {\r\n-    let arg: \r\n+    let arg: &mut u32 = arg\r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681644494481,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n // implement the function body.\r\n fn num_sq<T>(arg: &mut T) \r\n where T: AsMut<u32>\r\n {\r\n-    let arg: &mut u32 = arg\r\n+    let arg: &mut u32 = arg.as_mut()\r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681644501412,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,10 @@\n // implement the function body.\r\n fn num_sq<T>(arg: &mut T) \r\n where T: AsMut<u32>\r\n {\r\n-    let arg: &mut u32 = arg.as_mut()\r\n+    let arg: &mut u32 = arg.as_mut();\r\n+    *arg *= \r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681644507063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n fn num_sq<T>(arg: &mut T) \r\n where T: AsMut<u32>\r\n {\r\n     let arg: &mut u32 = arg.as_mut();\r\n-    *arg *= \r\n+    *arg *= *arg;\r\n }\r\n \r\n #[cfg(test)]\r\n mod tests {\r\n"
+                },
+                {
+                    "date": 1681644538068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,10 @@\n // I AM NOT DONE\r\n \r\n // Obtain the number of bytes (not characters) in the given argument\r\n // Add the AsRef trait appropriately as a trait bound\r\n-fn byte_counter<T>(arg: T) -> usize {\r\n+fn byte_counter<T>(arg: T) -> usize\r\n+ {\r\n     arg.as_ref().as_bytes().len()\r\n }\r\n \r\n // Obtain the number of characters (not bytes) in the given argument\r\n"
+                },
+                {
+                    "date": 1681644547197,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n \r\n // Obtain the number of bytes (not characters) in the given argument\r\n // Add the AsRef trait appropriately as a trait bound\r\n fn byte_counter<T>(arg: T) -> usize\r\n+where T: AsRef\r\n  {\r\n     arg.as_ref().as_bytes().len()\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681644557232,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,16 +7,17 @@\n \r\n // Obtain the number of bytes (not characters) in the given argument\r\n // Add the AsRef trait appropriately as a trait bound\r\n fn byte_counter<T>(arg: T) -> usize\r\n-where T: AsRef\r\n+where T: AsRef<str>\r\n  {\r\n     arg.as_ref().as_bytes().len()\r\n }\r\n \r\n // Obtain the number of characters (not bytes) in the given argument\r\n // Add the AsRef trait appropriately as a trait bound\r\n-fn char_counter<T>(arg: T) -> usize {\r\n+fn char_counter<T>(arg: T) -> usize\r\n+ {\r\n     arg.as_ref().chars().count()\r\n }\r\n \r\n // Squares a number using as_mut(). Add the trait bound as is appropriate and\r\n"
+                },
+                {
+                    "date": 1681644563763,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,9 @@\n \r\n // Obtain the number of characters (not bytes) in the given argument\r\n // Add the AsRef trait appropriately as a trait bound\r\n fn char_counter<T>(arg: T) -> usize\r\n+where T: \r\n  {\r\n     arg.as_ref().chars().count()\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681644572801,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n \r\n // Obtain the number of characters (not bytes) in the given argument\r\n // Add the AsRef trait appropriately as a trait bound\r\n fn char_counter<T>(arg: T) -> usize\r\n-where T: \r\n+where T: AsRef<str>\r\n  {\r\n     arg.as_ref().chars().count()\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1681644599418,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,10 +2,8 @@\n // Read more about them at https://doc.rust-lang.org/std/convert/trait.AsRef.html\r\n // and https://doc.rust-lang.org/std/convert/trait.AsMut.html, respectively.\r\n // Execute `rustlings hint as_ref_mut` or use the `hint` watch subcommand for a hint.\r\n \r\n-// I AM NOT DONE\r\n-\r\n // Obtain the number of bytes (not characters) in the given argument\r\n // Add the AsRef trait appropriately as a trait bound\r\n fn byte_counter<T>(arg: T) -> usize\r\n where T: AsRef<str>\r\n"
+                }
+            ],
+            "date": 1681644435742,
+            "name": "Commit-0",
+            "content": "// AsRef and AsMut allow for cheap reference-to-reference conversions.\r\n// Read more about them at https://doc.rust-lang.org/std/convert/trait.AsRef.html\r\n// and https://doc.rust-lang.org/std/convert/trait.AsMut.html, respectively.\r\n// Execute `rustlings hint as_ref_mut` or use the `hint` watch subcommand for a hint.\r\n\r\n// I AM NOT DONE\r\n\r\n// Obtain the number of bytes (not characters) in the given argument\r\n// Add the AsRef trait appropriately as a trait bound\r\nfn byte_counter<T>(arg: T) -> usize {\r\n    arg.as_ref().as_bytes().len()\r\n}\r\n\r\n// Obtain the number of characters (not bytes) in the given argument\r\n// Add the AsRef trait appropriately as a trait bound\r\nfn char_counter<T>(arg: T) -> usize {\r\n    arg.as_ref().chars().count()\r\n}\r\n\r\n// Squares a number using as_mut(). Add the trait bound as is appropriate and\r\n// implement the function body.\r\nfn num_sq<T>(arg: &mut T) \r\n{\r\n    ???\r\n}\r\n\r\n#[cfg(test)]\r\nmod tests {\r\n    use super::*;\r\n\r\n    #[test]\r\n    fn different_counts() {\r\n        let s = \"Café au lait\";\r\n        assert_ne!(char_counter(s), byte_counter(s));\r\n    }\r\n\r\n    #[test]\r\n    fn same_counts() {\r\n        let s = \"Cafe au lait\";\r\n        assert_eq!(char_counter(s), byte_counter(s));\r\n    }\r\n\r\n    #[test]\r\n    fn different_counts_using_string() {\r\n        let s = String::from(\"Café au lait\");\r\n        assert_ne!(char_counter(s.clone()), byte_counter(s));\r\n    }\r\n\r\n    #[test]\r\n    fn same_counts_using_string() {\r\n        let s = String::from(\"Cafe au lait\");\r\n        assert_eq!(char_counter(s.clone()), byte_counter(s));\r\n    }\r\n\r\n    #[test]\r\n    fn mult_box() {\r\n        let mut num: Box<u32> = Box::new(3);\r\n        num_sq(&mut num);\r\n        assert_eq!(*num, 9);\r\n    }\r\n}\r\n"
+        }
+    ]
+}

@@ -1,0 +1,66 @@
+{
+    "sourceFile": "exercises/clippy/clippy3.rs",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 12,
+            "patches": [
+                {
+                    "date": 1681644060545,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1681644066249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,6 +22,7 @@\n     let mut value_b = 66;\r\n     // Let's swap these two!\r\n     // value_a = value_b;\r\n     // value_b = value_a;\r\n+    td::mem::swap(&mut value_a, &mut value_b);\r\n     println!(\"value a: {}; value b: {}\", value_a, value_b);\r\n }\r\n"
+                },
+                {
+                    "date": 1681644119903,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,9 @@\n         my_option.unwrap();\r\n     }\r\n \r\n     let my_arr = &[\r\n-        -1, -2, -3\r\n+        -1, -2, -3,\r\n         -4, -5, -6\r\n     ];\r\n     println!(\"My array! Here it is: {:?}\", my_arr);\r\n \r\n"
+                },
+                {
+                    "date": 1681644128046,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,7 +22,7 @@\n     let mut value_b = 66;\r\n     // Let's swap these two!\r\n     // value_a = value_b;\r\n     // value_b = value_a;\r\n-    td::mem::swap(&mut value_a, &mut value_b);\r\n+    std::mem::swap(&mut value_a, &mut value_b);\r\n     println!(\"value a: {}; value b: {}\", value_a, value_b);\r\n }\r\n"
+                },
+                {
+                    "date": 1681644191918,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,10 +8,9 @@\n     if my_option.is_none() {\r\n         my_option.unwrap();\r\n     }\r\n \r\n-    let my_arr = &[\r\n-        -1, -2, -3,\r\n+    let my_arr = &[-1, -2, -3,\r\n         -4, -5, -6\r\n     ];\r\n     println!(\"My array! Here it is: {:?}\", my_arr);\r\n \r\n"
+                },
+                {
+                    "date": 1681644212964,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,11 +8,9 @@\n     if my_option.is_none() {\r\n         my_option.unwrap();\r\n     }\r\n \r\n-    let my_arr = &[-1, -2, -3,\r\n-        -4, -5, -6\r\n-    ];\r\n+    let my_arr = &[-1, -2, -3,-4, -5, -6].rezi;\r\n     println!(\"My array! Here it is: {:?}\", my_arr);\r\n \r\n     let my_empty_vec = vec![1, 2, 3, 4, 5].resize(0, 5);\r\n     println!(\"This Vec is empty, see? {:?}\", my_empty_vec);\r\n"
+                },
+                {
+                    "date": 1681644228335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     if my_option.is_none() {\r\n         my_option.unwrap();\r\n     }\r\n \r\n-    let my_arr = &[-1, -2, -3,-4, -5, -6].rezi;\r\n+    let my_arr = &[-1, -2, -3,-4, -5, -6]();\r\n     println!(\"My array! Here it is: {:?}\", my_arr);\r\n \r\n     let my_empty_vec = vec![1, 2, 3, 4, 5].resize(0, 5);\r\n     println!(\"This Vec is empty, see? {:?}\", my_empty_vec);\r\n"
+                },
+                {
+                    "date": 1681644244968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     if my_option.is_none() {\r\n         my_option.unwrap();\r\n     }\r\n \r\n-    let my_arr = &[-1, -2, -3,-4, -5, -6]();\r\n+    let my_arr = &[-1, -2, -3,-4, -5, -6].resize)0, 5;\r\n     println!(\"My array! Here it is: {:?}\", my_arr);\r\n \r\n     let my_empty_vec = vec![1, 2, 3, 4, 5].resize(0, 5);\r\n     println!(\"This Vec is empty, see? {:?}\", my_empty_vec);\r\n"
+                },
+                {
+                    "date": 1681644250367,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     if my_option.is_none() {\r\n         my_option.unwrap();\r\n     }\r\n \r\n-    let my_arr = &[-1, -2, -3,-4, -5, -6].resize)0, 5;\r\n+    let my_arr = &[-1, -2, -3,-4, -5, -6].resize(20, 5);\r\n     println!(\"My array! Here it is: {:?}\", my_arr);\r\n \r\n     let my_empty_vec = vec![1, 2, 3, 4, 5].resize(0, 5);\r\n     println!(\"This Vec is empty, see? {:?}\", my_empty_vec);\r\n"
+                },
+                {
+                    "date": 1681644275556,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,9 @@\n     if my_option.is_none() {\r\n         my_option.unwrap();\r\n     }\r\n \r\n-    let my_arr = &[-1, -2, -3,-4, -5, -6].resize(20, 5);\r\n+    let my_arr = &[-1, -2, -3,-4, -5, -6];\r\n     println!(\"My array! Here it is: {:?}\", my_arr);\r\n \r\n     let my_empty_vec = vec![1, 2, 3, 4, 5].resize(0, 5);\r\n     println!(\"This Vec is empty, see? {:?}\", my_empty_vec);\r\n"
+                },
+                {
+                    "date": 1681644307078,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,9 @@\n \r\n     let my_arr = &[-1, -2, -3,-4, -5, -6];\r\n     println!(\"My array! Here it is: {:?}\", my_arr);\r\n \r\n-    let my_empty_vec = vec![1, 2, 3, 4, 5].resize(0, 5);\r\n+    let my_empty_vec = vec![1, 2, 3, 4, 5];\r\n     println!(\"This Vec is empty, see? {:?}\", my_empty_vec);\r\n \r\n     let mut value_a = 45;\r\n     let mut value_b = 66;\r\n"
+                },
+                {
+                    "date": 1681644336247,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,11 +4,11 @@\n \r\n #[allow(unused_variables, unused_assignments)]\r\n fn main() {\r\n     let my_option: Option<()> = None;\r\n-    if my_option.is_none() {\r\n-        my_option.unwrap();\r\n-    }\r\n+    // if my_option.is_none() {\r\n+    //     my_option.unwrap();\r\n+    // }\r\n \r\n     let my_arr = &[-1, -2, -3,-4, -5, -6];\r\n     println!(\"My array! Here it is: {:?}\", my_arr);\r\n \r\n"
+                },
+                {
+                    "date": 1681644347448,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n     let my_option: Option<()> = None;\r\n     // if my_option.is_none() {\r\n     //     my_option.unwrap();\r\n     // }\r\n-    if my_option.is_some\r\n+    if my_option.is_some()\r\n \r\n     let my_arr = &[-1, -2, -3,-4, -5, -6];\r\n     println!(\"My array! Here it is: {:?}\", my_arr);\r\n \r\n"
+                }
+            ],
+            "date": 1681644060545,
+            "name": "Commit-0",
+            "content": "// clippy3.rs\r\n// Here's a couple more easy Clippy fixes, so you can see its utility.\r\n\r\n\r\n#[allow(unused_variables, unused_assignments)]\r\nfn main() {\r\n    let my_option: Option<()> = None;\r\n    if my_option.is_none() {\r\n        my_option.unwrap();\r\n    }\r\n\r\n    let my_arr = &[\r\n        -1, -2, -3\r\n        -4, -5, -6\r\n    ];\r\n    println!(\"My array! Here it is: {:?}\", my_arr);\r\n\r\n    let my_empty_vec = vec![1, 2, 3, 4, 5].resize(0, 5);\r\n    println!(\"This Vec is empty, see? {:?}\", my_empty_vec);\r\n\r\n    let mut value_a = 45;\r\n    let mut value_b = 66;\r\n    // Let's swap these two!\r\n    // value_a = value_b;\r\n    // value_b = value_a;\r\n    println!(\"value a: {}; value b: {}\", value_a, value_b);\r\n}\r\n"
+        }
+    ]
+}
